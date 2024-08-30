@@ -18,11 +18,11 @@ describe("Lock", function () {
   }
 
   // describe("Deployment", function () {
-  //   it("Should set the right unlockTime", async function () {
-  //     const { etherStaking } = await loadFixture(deployEtherStaking);
+    // it("Should set the right unlockTime", async function () {
+    //   const { etherStaking } = await loadFixture(deployEtherStaking);
 
-  //     expect(await lock.unlockTime()).to.equal(unlockTime);
-  //   });
+    //   expect(await lock.unlockTime()).to.equal(unlockTime);
+    // });
 
   //   it("Should set the right owner", async function () {
   //     const { lock, owner } = await loadFixture(deployOneYearLockFixture);

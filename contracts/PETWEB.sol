@@ -1,16 +1,18 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.23;
+pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract PETWEB is ERC721 {
-    uint256 public currentTokenId;
+contract PETWED is ERC20("PETWED Token", "PETW") {
+    address public owner;
 
-    constructor() ERC721("PETWEB ", "PETW") {}
+    constructor() {
+        owner = msg.sender;
+        _mint(msg.sender, 100000e18);
+    }
 
-    function mint(address recipient) public returns (uint256) {
-        uint256 newItemId = ++currentTokenId;
-        _safeMint(recipient, newItemId);
-        return newItemId;
+    function mint(uint _amount) external {
+        require(msg.sender == owner, "you are not owner");
+        _mint(msg.sender, _amount * 1e18);
     }
 }

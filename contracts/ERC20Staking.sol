@@ -1,5 +1,5 @@
 //SPDX-Lincense-Identifier: MIT
-pragma solidity 0.8.23;
+pragma solidity 0.8.24;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract ERC20Staking{
@@ -40,9 +40,10 @@ contract ERC20Staking{
         uint stakingDuration = block.timestamp + (_duration * SECONDS_PER_MONTH);
         Users[msg.sender] = User(msg.sender, IERC20(tokenAddress).balanceOf(msg.sender) , stakingDuration);
         
-        IERC20(tokenAddress).transferFrom(msg.sender, address(this), _amount);
-        emit DepositSuccessful(msg.value);
+        // IERC20(tokenAddress).transferFrom(msg.sender, address(this), _amount);
+        // emit DepositSuccessful(msg.value);
     }
+
 
 
     function getgetMyEstimatedStakedBalance() public {
